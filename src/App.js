@@ -1,5 +1,5 @@
 import "./style.css";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import Popup from "./popup";
 
 function App() {
@@ -8,6 +8,7 @@ function App() {
   const [popUp, setPopup] = useState(false);
   const [social, setSocial] = useState([]);
   const [dataLoaded, setDataLoaded] = useState(false);
+  const [showLinks, setShowLinks] = useState(false);
 
   async function fetchData() {
     let result = await fetch("https://augmentik.onrender.com/getData", {
@@ -20,9 +21,20 @@ function App() {
     setSocial(result.social);
     setDataLoaded(true);
   }
+
   useEffect(() => {
     fetchData();
   }, []);
+
+  // useEffect(() => {
+  //   // if (showLinks) {
+  //   //   linksContainerRef.current.style.height = "200px";
+  //   // } else {
+  //   //   linksContainerRef.current.style.height = "0px";
+  //   // }
+  //   console.log(linksContainerRef.current);
+  // }, [showLinks]);
+
   function img_carousel(start) {
     return (
       <>
@@ -81,9 +93,18 @@ function App() {
           <div className="header">
             <div className="logo-container">
               <h2>Sri Lanka</h2>
+              <button
+                onClick={() => setShowLinks(!showLinks)}
+                className="menu-btn"
+              >
+                <span class="material-symbols-outlined">menu</span>
+              </button>
             </div>
+
             <div className="nav-container">
-              <div className="nav-menu">
+              <div
+                className={showLinks ? "nav-menu nav-menu-mobile" : "nav-menu"}
+              >
                 <ul>
                   <li>home</li>
                   <li>discover</li>

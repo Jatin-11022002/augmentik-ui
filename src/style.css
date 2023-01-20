@@ -37,6 +37,7 @@
 .logo-container {
   width: 50%;
   color: white;
+  display: block;
 }
 
 .nav-container {
@@ -202,7 +203,7 @@
   justify-content: center;
   align-content: center;
   flex-wrap: wrap;
-  max-width: 60%;
+  min-width: 60%;
 }
 
 .explore .next-button {
@@ -300,7 +301,7 @@ button {
 }
 
 .popup-inner .submit-btn {
-  width: 15%;
+  width: 20%;
   padding: 5px 1rem;
   margin: 1rem auto;
   cursor: pointer;
@@ -354,7 +355,29 @@ button {
   display: block;
 }
 
+.menu-btn {
+  display: none;
+}
+
+/* .explore-card-carousel .active-card {
+  transform: translateX(0);
+}
+.explore-card-carousel .last-card {
+  transform: translateX(0);
+}
+.explore-card-carousel .next-card {
+  transform: translateX(0);
+} */
+
+/* .explore-card-carousel .img-card {
+  position: absolute;
+} */
+
 @media screen and (max-width: 768px) {
+  .menu-btn {
+    display: block;
+  }
+
   .main {
     flex-direction: column;
   }
@@ -400,12 +423,45 @@ button {
   }
 
   .explore-card-carousel {
-    max-width: 90%;
+    max-width: 50%;
     margin: 0 auto;
   }
 
   .explore-card-carousel .img-card {
     height: 300px;
     width: 220px;
+  }
+
+  .logo-container {
+    display: flex;
+    width: 95%;
+    justify-content: space-between;
+  }
+  .nav-container {
+    /* display: none; */
+  }
+  .header {
+    flex-direction: column;
+  }
+  .nav-menu {
+    display: none;
+  }
+
+  .nav-menu-mobile ul {
+    flex-direction: column;
+    background-color: rgba(255, 255, 255, 0.904);
+    padding: 10px;
+  }
+  .nav-menu-mobile {
+    display: block;
+    width: 90%;
+    position: absolute;
+    margin-top: 1rem;
+    color: black;
+  }
+  .social-menu {
+    padding: 0;
+    position: inherit;
+    display: none;
   }
 }
